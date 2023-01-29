@@ -16,6 +16,7 @@ public class DummyDataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
         todoService.createTodos(List.of(
                 TodoRequest.builder()
                         .title("Step 1")
@@ -36,5 +37,9 @@ public class DummyDataLoader implements ApplicationRunner {
                         .title("Step 4")
                         .body("Test Endpoints")
                         .build()));
+
+
+
+
     }
 }
