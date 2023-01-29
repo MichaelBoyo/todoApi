@@ -3,35 +3,28 @@
 ---
 ### Build
 
--  clone from gitlab by running 'git clone https://gitlab.com/MichaelBoyo/dronesapi.git'
+-  clone from GitHub by running 'git clone https://github.com/MichaelBoyo/todoApi'
 - locate the  folder in your terminal
-- ensure you have maven and java 18 sdk installed
+- ensure you have maven and java 18 sdk or above  installed
 - run 'mvn package' in your terminal or command line to build the project 
 ---
 
 ### Run
-- run  'java -jar target/drones-0.0.1-SNAPSHOT.jar' in your terminal or command line to start the application
+- run  'java -jar target/todoApi-0.0.1-SNAPSHOT.jar' in your terminal or command line to start the application
 - the application will be started on http://localhost:8080
 
 ### Test
-- visit http://localhost:8080 and you should get "Welcome to Drones Api"
-- to get data on all drones visit http://localhost:8080/all_drones
-- make a POST request to http://localhost:8080/api/v1/drone/register to add a new drone. required request body 
-{ "model": "",
-  "serialNumber": "" }
-- make a PUT request to http://localhost:8080/api/v1/drone/load to load the drone with medication items. 
-required request body
-  { "droneId": 1,
-  "name": "test_name",
-  "weight" : 420.0,
-  "imageUrl": "test_url",
-  "code" :"test_code" }
-- make a GET request to http://localhost:8080/api/v1/drone/loaded_medications to get loaded medication items.
+- visit http://localhost:8080 on your browser, and you should get "Welcome to TodoApi"
+- to get data on all todos visit http://localhost:8080/api/v1/todo (ascending order by default based on date and time created)
+- make a POST request to http://localhost:8080/api/v1/todo to add a new todo. required request body 
+{ "title": "",
+  "body": "" }
+- make a GET request to http://localhost:8080/api/v1/todo?sort=desc to get todos in descending order.
   required request body
   { "droneId": 1}
-- make a GET request to http://localhost:8080/api/v1/drone/available_drones to get available drones for loading.
-  no request body is required
-- make a GET request to http://localhost:8080/api/v1/drone/battery_level to get battery level of a drone.
+- make a DELETE request to http://localhost:8080/api/v1/todo/{id} to delete a todo.
+- make a PUT request to http://localhost:8080/api/v1/todo/{id} to update todo.
   required request body
-  { "droneId": 1}
-# dronesapi# todoApi
+  { "title": "",
+  "body": "" }
+
