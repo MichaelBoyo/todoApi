@@ -14,4 +14,6 @@ public interface TodoService {
     GetAllTodosResponse getTodos(Sort.Direction direction);
 
     void createTodos(List<TodoRequest> todoRequest1) throws InterruptedException;
+
+    TodoApiResponse getTodoById(Long id) throws TodoApiException;
 }

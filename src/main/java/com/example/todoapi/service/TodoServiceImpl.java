@@ -39,8 +39,9 @@ public class TodoServiceImpl implements TodoService {
         Todo todo = todoRepository.findById(request.getId()).orElseThrow(
                 () -> new TodoApiException("Todo not found")
         );
-        if (!Objects.equals(request.getBody(), "")) todo.setBody(request.getBody());
-        if (!Objects.equals(request.getTitle(), "")) todo.setTitle(request.getTitle());
+        if (!Objects.equals(request.getBody(), "") && request.getBody() != null) todo.setBody(request.getBody());
+        if (!Objects.equals(request.getTitle(), "") && request.getTitle() != null) todo.setTitle(request.getTitle());
+        if (request.isCompleted()) todo.setCompleted(true);
         todoRepository.saveAndFlush(todo);
         return TodoApiResponse.builder()
                 .success(true)
@@ -70,8 +71,18 @@ public class TodoServiceImpl implements TodoService {
 
         for (TodoRequest request : todoRequests) {
             createTodo(request);
-            Thread.sleep(1200);
+            Thread.sleep(1001);
         }
+    }
+
+    @Override
+    public TodoApiResponse getTodoById(Long id) throws TodoApiException {
+        return TodoApiResponse.builder()
+                .todo(
+                        todoRepository.findById(id).orElseThrow(
+                                () -> new TodoApiException("todo not found")
+                        ))
+                .build();
     }
 
 

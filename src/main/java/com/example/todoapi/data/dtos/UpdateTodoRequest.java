@@ -11,4 +11,5 @@ public class UpdateTodoRequest {
     private Long id;
     private String title;
     private String body;
+    private boolean completed;
 }

@@ -37,4 +37,9 @@ public class TodoController {
                 .getTodos(!sort.equals("asc") ? Sort.Direction.DESC : Sort.Direction.ASC));
 
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TodoApiResponse> getTodoById(@PathVariable Long id) throws TodoApiException {
+        return ResponseEntity.ok(todoService.getTodoById(id));
+    }
 }
