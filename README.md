@@ -5,6 +5,7 @@
 
 -  clone from GitHub by running 'git clone https://github.com/MichaelBoyo/todoApi'
 - locate the  folder in your terminal
+- cd into the folder
 - ensure you have maven and java 18 sdk or above  installed
 - run 'mvn package' in your terminal or command line to build the project 
 ---
